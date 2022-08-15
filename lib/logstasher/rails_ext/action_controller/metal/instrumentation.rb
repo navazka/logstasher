@@ -39,6 +39,8 @@ module ActionController
 
         result = super
 
+        payload[:user] = @current_user&.fb_id
+
         payload[:status] = response.status
         append_info_to_payload(payload)
         LogStasher.store.each do |key, value|
