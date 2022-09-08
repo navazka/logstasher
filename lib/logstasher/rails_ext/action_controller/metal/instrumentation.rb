@@ -40,6 +40,7 @@ module ActionController
         result = super
 
         payload[:user] = @current_user&.fb_id
+        payload[:response] = @current_response
 
         payload[:status] = response.status
         append_info_to_payload(payload)
